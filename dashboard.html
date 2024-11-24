@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- For AJAX support -->
+</head>
+<body>
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <div id="sidebar-toggle" class="toggle-btn">
+      <span>&#9665;</span>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="clientprofile.html">Client Profile</a></li>
+      <li><a href="usercreation.html">User Creation</a></li>
+      <li><a href="reports.html">Reports</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Header -->
+    <header>
+      <h1>Dashboard</h1>
+    </header>
+
+    <!-- Metrics Boxes -->
+    <div class="metrics">
+      <div class="metric-box">
+        <h3>Total Sales</h3>
+        <p id="total-sales">100</p>
+      </div>
+      <div class="metric-box">
+        <h3>Total Revenue</h3>
+        <p id="total-revenue">1500</p>
+      </div>
+      <div class="metric-box">
+        <h3>Total Clients</h3>
+        <p id="total-clients">200</p>
+      </div>
+      <div class="metric-box">
+        <h3>Total Users</h3>
+        <p id="total-users">50</p>
+      </div>
+      <div class="metric-box">
+        <h3>Total Transactions</h3>
+        <p id="total-transactions">300</p>
+      </div>
+      <div class="metric-box">
+        <h3>Active Users</h3>
+        <p id="active-users">150</p>
+      </div>
+      <div class="metric-box">
+        <h3>Pending Approvals</h3>
+        <p id="pending-approvals">5</p>
+      </div>
+      <div class="metric-box">
+        <h3>Failed Payments</h3>
+        <p id="failed-payments">10</p>
+      </div>
+    </div>
+
+    <!-- Search Form -->
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Search by Name, Phone Number or Node">
+      <button id="search-btn">Search</button>
+    </div>
+
+    <!-- Search Results -->
+    <div id="search-results" class="search-results">
+      <!-- Search results will be injected here by JavaScript -->
+    </div>
+  </div>
+
+  <script>
+    // Sidebar toggle function
+    const toggleBtn = document.getElementById('sidebar-toggle');
+    const sidebar = document.getElementById('sidebar');
+    
+    toggleBtn.addEventListener('click', () => {
+      if (sidebar.style.width === '30%') {
+        sidebar.style.width = '70%';
+      } else {
+        sidebar.style.width = '30%';
+      }
+    });
+
+    // AJAX search function
+    document.getElementById('search-btn').addEventListener('click', function() {
+      const query = document.getElementById('search-input').value;
+
+      $.ajax({
+        url: '/search/',  // Placeholder for your backend search endpoint
+        method: 'GET',
+        data: { query: query },
+        success: function(response) {
+          const resultsContainer = document.getElementById('search-results');
+          resultsContainer.innerHTML = '';
+          response.results.forEach(result => {
+            const div = document.createElement('div');
+            div.classList.add('search-result');
+            div.innerHTML = `
+              <p>Name: ${result.name}</p>
+              <p>Phone: ${result.phone}</p>
+              <p>Node: ${result.node}</p>
+            `;
+            resultsContainer.appendChild(div);
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
