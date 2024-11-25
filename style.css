@@ -6,7 +6,8 @@ body {
     display: flex;
     background-color: #f4f7fc;
   }
-  
+
+  /* START of sidebar Menu Section */
   #sidebar {
     width: 250px;
     height: 100vh;
@@ -60,7 +61,9 @@ body {
     padding: 20px;
     flex-grow: 1;
   }
-  
+/* END of sidebar Menu Section */
+
+/* START of Header Seciton Styling */
   header {
     display: flex;
     justify-content: space-between;
@@ -123,7 +126,55 @@ body {
   .dropdown-menu ul li:hover {
     background-color: #f4f7fc;
   }
-  
+  /* END of Header Seciton Styling */
+
+
+/* START of Select Clients Dropdown Section */
+.select-client-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 40px;
+    border: 1px solid #dcdfe1;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 14px; /* Adjust font size */
+}
+
+.select-client-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#client-dropdown {
+    display: flex; /* Aligns dropdown and button in a row */
+    gap: 10px; /* Space between dropdown and button */
+    align-items: center; /* Vertically centers the dropdown and button */
+}
+
+#client-name {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 200px; /* Set a fixed width for the dropdown */
+}
+
+#search-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* END of Select Clients Dropdown Section */
+
+
+
+/* START of Metric Box Styling */
+
   .metrics-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -156,19 +207,34 @@ body {
     transform: translateY(-5px); /* Lift the box when hovered */
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
   }
+/* END of Metric Box Styling */
+
 
   .search-container {
     background-color: white;
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 40px;
-  border: 1px solid #dcdfe1; /* Add border around search container */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  border: 1px solid #dcdfe1;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex; /* Use flexbox to align items horizontally */
+  align-items: center; /* Vertically center the items */
+  gap: 10px; /* Space between items (heading, inputs, button) */
   }
   
+  .search-container h2 {
+    margin: 0; /* Remove any default margin */
+    font-size: 24px;
+  }
+
+  #search-form {
+    display: flex; /* Use flexbox to align form elements horizontally */
+    gap: 10px; /* Adds space between the input fields and the button */
+  }
+
   #search-form input {
     padding: 10px;
-    width: 20%;
+    width: 200px; /* Set a fixed width for input fields */
     font-size: 16px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -176,7 +242,7 @@ body {
   }
   
   #search-btn {
-    padding: 10px 20px;
+    padding: 10px 30px;
     font-size: 16px;
     cursor: pointer;
     background-color: #3498db;
@@ -200,6 +266,73 @@ body {
     margin: 5px 0;
   }
   
+
+/* START of User Information Container Styling */
+.user-info-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 40px;
+    border: 1px solid #dcdfe1;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: block;
+    max-width: 100%; /* Allow full width to fit the desktop window */
+    overflow: hidden;
+    font-size: 14px; /* Adjust font size for better fitting in a desktop window */
+  }
+  
+  .user-info-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  #user-info-form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Create 4 columns */
+    gap: 20px;
+    font-size: 14px; /* Adjust font size */
+  }
+  
+  .form-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .form-row label {
+    width: 150px;
+    font-weight: bold;
+    margin-right: 10px; /* Space between label and input */
+  }
+  
+  .form-row input {
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button#reset-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%; /* Make reset button full-width for better visibility */
+    margin-top: 20px;
+  }
+  
+  button#reset-btn:hover {
+    background-color: #2980b9;
+  }
+/* END of user Information Container*/  
+
+
+
+
   /* Responsive Design for Sidebar */
   @media screen and (max-width: 768px) {
     #sidebar {

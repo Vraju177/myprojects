@@ -42,6 +42,28 @@
       </div>
     </header>
 
+
+<!-- Start of Select Client Section -->
+<div class="select-client-container">
+    <h2>Select Client</h2>
+    <form id="client-dropdown">
+        <!-- Dropdown for Client Names -->
+        <select id="client-name" name="client-name">
+            <option value="">Select Client</option>
+            <option value="A-Spec">A-Spec</option>
+            <option value="Arthur Transport">Arthur Transport</option>
+            <option value="Diamond Insurance">Diamond Insurance</option>
+            <option value="Gracious Hardwood">Gracious Hardwood</option>
+            <option value="Haulage Na">Haulage Na</option>
+        </select>
+        
+        <!-- Search Button -->
+        <button type="button" id="search-btn">Search</button>
+    </form>
+</div>
+<!-- End of Select Client Section -->
+
+
 <!-- Top Section: Metrics Boxes -->
 <div class="metrics-container">
     <div class="metric-box">
@@ -78,9 +100,9 @@
     </div>
   </div>
   
-  <!-- Search Section -->
+  <!-- Search Users Section -->
   <div class="search-container">
-    <h2>Search Clients</h2> 
+    <h2>Search Users</h2> 
     <form id="search-form">
       <input type="text" id="search-name" placeholder="Enter Name">
       <input type="text" id="search-phone" placeholder="Enter Phone Number">
@@ -89,12 +111,86 @@
     </form>
   </div>
   
+  
 
-    <!-- Search Results -->
-    <div id="search-results" class="search-results">
-      <!-- Search results will be injected here by JavaScript -->
-    </div>
+    <!-- START of User Information Container -->
+    <div class="user-info-container">
+        <h2>User Information</h2>
+        <form id="user-info-form">
+          <div class="form-row">
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" placeholder="Enter Full Name">
+          </div>
+          <div class="form-row">
+            <label for="phone-number">Phone Number</label>
+            <input type="text" id="phone-number" placeholder="Enter Phone Number">
+          </div>
+          <div class="form-row">
+            <label for="company-name">Company Name</label>
+            <input type="text" id="company-name" placeholder="Enter Company Name">
+          </div>
+          <div class="form-row">
+            <label for="location">Location</label>
+            <input type="text" id="location" placeholder="Enter Location">
+          </div>
+          <div class="form-row">
+            <label for="user-name">User Name</label>
+            <input type="text" id="user-name" placeholder="Enter User Name">
+          </div>
+          <div class="form-row">
+            <label for="email-id">Email Id</label>
+            <input type="text" id="email-id" placeholder="Enter Email Id">
+          </div>
+          <div class="form-row">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter Password">
+          </div>
+          <div class="form-row">
+            <label for="branch-code">Branch Code</label>
+            <input type="text" id="branch-code" placeholder="Enter Branch Code">
+          </div>
+          <div class="form-row">
+            <label for="node-number">Node #</label>
+            <input type="text" id="node-number" placeholder="Enter Node Number">
+          </div>
+          <div class="form-row">
+            <label for="port-no">Port No</label>
+            <input type="text" id="port-no" placeholder="Enter Port Number">
+          </div>
+          <div class="form-row">
+            <label for="internal-ip">Internal IP</label>
+            <input type="text" id="internal-ip" placeholder="Enter Internal IP">
+          </div>
+          <div class="form-row">
+            <label for="power-broker-id">Power Broker Id</label>
+            <input type="text" id="power-broker-id" placeholder="Enter Power Broker Id">
+          </div>
+          <div class="form-row">
+            <label for="applied-ratings-id">Applied Ratings ID</label>
+            <input type="text" id="applied-ratings-id" placeholder="Enter Applied Ratings ID">
+          </div>
+          <div class="form-row">
+            <label for="fleet-manager-id">Fleet Manager Id</label>
+            <input type="text" id="fleet-manager-id" placeholder="Enter Fleet Manager Id">
+          </div>
+          <div class="form-row">
+            <label for="creation-date">Creation Date</label>
+            <input type="date" id="creation-date" placeholder="Select Creation Date">
+          </div>
+          <div class="form-row">
+            <label for="status">Status</label>
+            <input type="text" id="status" placeholder="Enter Status">
+          </div>
+          <button type="button" id="reset-btn">Reset</button>
+        </form>
+      </div>
+    <!-- END of User Information Section-->  
+
+
   </div>
+
+
+
 
   <script>
     // Sidebar toggle function
@@ -151,5 +247,47 @@
       });
     });
   </script>
+
+<!-- START of Handle Client DropDown Selection and Metrics Update Script-->
+<script>
+    // Add event listener for the search button click
+    document.getElementById("search-btn").addEventListener("click", function() {
+        // Get the selected client from the dropdown
+        var selectedClient = document.getElementById("client-name").value;
+    
+        // If no client is selected, show a message
+        if (selectedClient === "") {
+            alert("Please select a client!");
+            return;
+        }
+    
+        // Simulate updating metrics based on selected client
+        // You will replace this with an AJAX call to fetch data from MySQL
+        updateMetrics(selectedClient);
+    });
+    
+    // Function to simulate the update of metrics
+    function updateMetrics(client) {
+        // Placeholder logic to simulate metric data based on client selection
+        var metrics = {
+            "A-Spec": { sales: 100, revenue: 1500 },
+            "Arthur Transport": { sales: 200, revenue: 2500 },
+            "Diamond Insurance": { sales: 150, revenue: 1800 },
+            "Gracious Hardwood": { sales: 120, revenue: 2200 },
+            "Haulage Na": { sales: 130, revenue: 1900 }
+        };
+    
+        // Simulate fetching the data
+        if (metrics[client]) {
+            console.log("Metrics for " + client + ":");
+            console.log("Total Sales: " + metrics[client].sales);
+            console.log("Total Revenue: " + metrics[client].revenue);
+        }
+    }
+    </script>
+<!-- END of Handle Client DropDown Selection and Metrics Update script-->
+
+
+
 </body>
 </html>
