@@ -134,9 +134,12 @@ body {
   
   .metric-box {
     background-color: #ecf0f1;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #dcdfe1; /* Add visible border */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  transition: transform 0.3s ease-in-out; /* Smooth scaling effect on hover */
   }
   
   .metric-box h3 {
@@ -149,16 +152,23 @@ body {
     margin-top: 10px;
   }
   
+  .metric-box:hover {
+    transform: translateY(-5px); /* Lift the box when hovered */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+  }
+
   .search-container {
     background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 40px;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 40px;
+  border: 1px solid #dcdfe1; /* Add border around search container */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
   }
   
   #search-form input {
     padding: 10px;
-    width: 100%;
+    width: 20%;
     font-size: 16px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -166,7 +176,7 @@ body {
   }
   
   #search-btn {
-    padding: 10px;
+    padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     background-color: #3498db;
