@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
+  <title>Admin Dashboard</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- For AJAX support -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- For Icons -->
 </head>
 <body>
   <!-- Sidebar -->
@@ -14,22 +15,35 @@
       <span>&#9665;</span>
     </div>
     <ul class="sidebar-menu">
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="clientprofile.html">Client Profile</a></li>
-      <li><a href="usercreation.html">User Creation</a></li>
-      <li><a href="reports.html">Reports</a></li>
+      <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+      <li><a href="clientprofile.html"><i class="fas fa-users"></i> Client Profile</a></li>
+      <li><a href="usercreation.html"><i class="fas fa-user-plus"></i> User Creation</a></li>
+      <li><a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
     </ul>
   </div>
 
   <!-- Main Content -->
   <div class="main-content">
-    <!-- Header -->
-    <header>
-      <h1>Dashboard</h1>
+    <!-- Header Section -->
+    <header class="header">
+      <div class="header-left">
+        <h1>Admin Dashboard</h1>
+      </div>
+      <div class="header-right">
+        <div class="profile-dropdown">
+          <i class="fas fa-user-circle profile-icon" id="profile-icon"></i>
+          <div class="dropdown-menu" id="dropdown-menu">
+            <ul>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </header>
 
-    <!-- Metrics Boxes -->
-    <div class="metrics">
+    <!-- Top Section: Metrics Boxes -->
+    <div class="metrics-container">
       <div class="metric-box">
         <h3>Total Sales</h3>
         <p id="total-sales">100</p>
@@ -64,10 +78,15 @@
       </div>
     </div>
 
-    <!-- Search Form -->
+    <!-- Search Section -->
     <div class="search-container">
-      <input type="text" id="search-input" placeholder="Search by Name, Phone Number or Node">
-      <button id="search-btn">Search</button>
+      <h2>Search Clients</h2>
+      <form id="search-form">
+        <input type="text" id="search-name" placeholder="Enter Name">
+        <input type="text" id="search-phone" placeholder="Enter Phone Number">
+        <input type="text" id="search-node" placeholder="Enter Node #">
+        <button type="button" id="search-btn">Search</button>
+      </form>
     </div>
 
     <!-- Search Results -->
@@ -82,21 +101,38 @@
     const sidebar = document.getElementById('sidebar');
     
     toggleBtn.addEventListener('click', () => {
-      if (sidebar.style.width === '30%') {
-        sidebar.style.width = '70%';
+      if (sidebar.style.width === '250px') {
+        sidebar.style.width = '70px'; // Collapsing Sidebar
       } else {
-        sidebar.style.width = '30%';
+        sidebar.style.width = '250px'; // Expanding Sidebar
+      }
+    });
+
+    // Profile Dropdown Menu Toggle
+    const profileIcon = document.getElementById('profile-icon');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+
+    profileIcon.addEventListener('click', function() {
+      dropdownMenu.classList.toggle('show');
+    });
+
+    // Close dropdown if clicked outside
+    document.addEventListener('click', function(event) {
+      if (!profileIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
+        dropdownMenu.classList.remove('show');
       }
     });
 
     // AJAX search function
     document.getElementById('search-btn').addEventListener('click', function() {
-      const query = document.getElementById('search-input').value;
+      const name = document.getElementById('search-name').value;
+      const phone = document.getElementById('search-phone').value;
+      const node = document.getElementById('search-node').value;
 
       $.ajax({
         url: '/search/',  // Placeholder for your backend search endpoint
         method: 'GET',
-        data: { query: query },
+        data: { name: name, phone: phone, node: node },
         success: function(response) {
           const resultsContainer = document.getElementById('search-results');
           resultsContainer.innerHTML = '';
