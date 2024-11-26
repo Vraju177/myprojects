@@ -18,9 +18,9 @@
       <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
       <li><a href="clients.html"><i class="fas fa-users"></i> Client Profile</a></li>
       <li><a href="usercreation.html"><i class="fas fa-user-plus"></i> User Creation</a></li>
-      <li><a href=""><i class="fas fa-ticket-alt"></i> Open New Ticket</a></li>
-      <li><a href=""><i class="fas fa-check-circle"></i> Closed Tickets</a></li>
-      <li><a href=""><i class="fas fa-chart-line"></i> Reports</a></li>
+      <li><a href="open-ticket.html"><i class="fas fa-ticket-alt"></i> Open New Ticket</a></li>
+      <li><a href="closed-tickets.html"><i class="fas fa-check-circle"></i> Closed Tickets</a></li>
+      <li><a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
     </ul>
   </div>
 
@@ -69,20 +69,36 @@
 <!-- Top Section: Metrics Boxes -->
 <div class="metrics-container">
     <div class="metric-box">
-      <h3>Active Users</h3>
-      <p id="active-users">100</p>
+      <h3>Total Sales</h3>
+      <p id="total-sales">100</p>
     </div>
     <div class="metric-box">
-      <h3>Active RDP's</h3>
-      <p id="active-rdps">1500</p>
+      <h3>Total Revenue</h3>
+      <p id="total-revenue">1500</p>
     </div>
     <div class="metric-box">
-      <h3>Total Emails</h3>
-      <p id="active-emails">200</p>
+      <h3>Total Clients</h3>
+      <p id="total-clients">200</p>
     </div>
     <div class="metric-box">
-      <h3>Active VoIPs</h3>
+      <h3>Total Users</h3>
       <p id="total-users">50</p>
+    </div>
+    <div class="metric-box">
+      <h3>Total Transactions</h3>
+      <p id="total-transactions">300</p>
+    </div>
+    <div class="metric-box">
+      <h3>Active Users</h3>
+      <p id="active-users">150</p>
+    </div>
+    <div class="metric-box">
+      <h3>Pending Approvals</h3>
+      <p id="pending-approvals">5</p>
+    </div>
+    <div class="metric-box">
+      <h3>Failed Payments</h3>
+      <p id="failed-payments">10</p>
     </div>
   </div>
   
@@ -99,9 +115,9 @@
   
   
 
-    <!-- START of Search Results Container -->
+    <!-- START of User Information Container -->
     <div class="user-info-container">
-        <h2>User Search Results</h2>
+        <h2>User Information</h2>
         <form id="user-info-form">
           <div class="form-row">
             <label for="full-name">Full Name</label>
@@ -167,17 +183,10 @@
             <label for="status">Status</label>
             <input type="text" id="status" placeholder="Enter Status">
           </div>
+          <button type="button" id="reset-btn">Reset</button>
         </form>
       </div>
-          <!-- New Case History Field -->
-          <div class="form-row">
-            <label for="case-history">Last Case History</label>
-            <textarea id="case-history" placeholder="Enter Case History" rows="6" cols="50"></textarea>
-            <button type="button" id="reset-btn">Reset</button>
-          </div>
-
-
-    <!-- END of Search Results Section-->  
+    <!-- END of User Information Section-->  
 
 
   </div>

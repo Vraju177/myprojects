@@ -44,51 +44,10 @@
       </div>
     </header>
 
-
-<!-- Start of Select Client Section -->
-<div class="select-client-container">
-    <h2>Select Client</h2>
-    <form id="client-dropdown">
-        <!-- Dropdown for Client Names -->
-        <select id="client-name" name="client-name">
-            <option value="">Select Client</option>
-            <option value="A-Spec">A-Spec</option>
-            <option value="Arthur Transport">Arthur Transport</option>
-            <option value="Diamond Insurance">Diamond Insurance</option>
-            <option value="Gracious Hardwood">Gracious Hardwood</option>
-            <option value="Haulage Na">Haulage Na</option>
-        </select>
-        
-        <!-- Search Button -->
-        <button type="button" id="search-btn">Search</button>
-    </form>
-</div>
-<!-- End of Select Client Section -->
-
-
-<!-- Top Section: Metrics Boxes -->
-<div class="metrics-container">
-    <div class="metric-box">
-      <h3>Active Users</h3>
-      <p id="active-users">100</p>
-    </div>
-    <div class="metric-box">
-      <h3>Active RDP's</h3>
-      <p id="active-rdps">1500</p>
-    </div>
-    <div class="metric-box">
-      <h3>Total Emails</h3>
-      <p id="active-emails">200</p>
-    </div>
-    <div class="metric-box">
-      <h3>Active VoIPs</h3>
-      <p id="total-users">50</p>
-    </div>
-  </div>
   
   <!-- Search Users Section -->
   <div class="search-container">
-    <h2>Search Users</h2> 
+    <h2>Search Client</h2> 
     <form id="search-form">
       <input type="text" id="search-name" placeholder="Enter Name">
       <input type="text" id="search-phone" placeholder="Enter Phone Number">
@@ -99,9 +58,9 @@
   
   
 
-    <!-- START of Search Results Container -->
+    <!-- START of User Information Container -->
     <div class="user-info-container">
-        <h2>User Search Results</h2>
+        <h2>Client Details</h2>
         <form id="user-info-form">
           <div class="form-row">
             <label for="full-name">Full Name</label>
@@ -167,17 +126,10 @@
             <label for="status">Status</label>
             <input type="text" id="status" placeholder="Enter Status">
           </div>
+          <button type="button" id="reset-btn">Reset</button>
         </form>
       </div>
-          <!-- New Case History Field -->
-          <div class="form-row">
-            <label for="case-history">Last Case History</label>
-            <textarea id="case-history" placeholder="Enter Case History" rows="6" cols="50"></textarea>
-            <button type="button" id="reset-btn">Reset</button>
-          </div>
-
-
-    <!-- END of Search Results Section-->  
+    <!-- END of User Information Section-->  
 
 
   </div>
